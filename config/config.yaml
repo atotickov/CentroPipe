@@ -1,0 +1,33 @@
+# Directory structure
+benchmark_dir: "benchmarks"
+cluster_log_dir: "cluster_logs"
+genomes_dir: "genomes"
+log_dir: "logs"
+results_dir: "results"
+quartet_dir: "quartet_results"
+chromosomes_dir: "chromosomes"
+
+# Conda config
+data_processing_conda_config: "workflow/envs/data_processing.conda.yaml"
+quartet_conda_config: "workflow/envs/quartet.conda.yaml"
+
+# Tools setting:
+# 1 - Threads
+scaffold_filtering_by_length.threads: 2
+quartet.threads: 2
+chromosomes.threads: 2
+
+# 2 - Memory
+scaffold_filtering_by_length.mem_mb: 40000
+quartet.mem_mb: 40000
+chromosomes.mem_mb: 40000
+
+# 3 - Time
+scaffold_filtering_by_length.time: "150:00:00"
+quartet.time: "150:00:00"
+chromosomes.time: "150:00:00"
+
+# 4 - Parameters
+scaffold_filtering_by_length.params: "10000"  # фильтрация скаффолдов по минимальной длине
+quartet.params: "--trf 2 7 7 80 10 500 -r 10 -n 650 -m 750"
+chromosomes.params: ""

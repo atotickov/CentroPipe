@@ -1,0 +1,22 @@
+# Snakemake dir
+.snakemake/
+
+# test input data
+genomes/assembly1/
+genomes/assembly2/
+
+# results dir
+results/
+
+# logs dir
+cluster_logs/
+logs/
+
+# benchmarks dir
+benchmarks/
+
+# scripts dir
+workflow/scripts/quartet
+
+# other
+tasks.txt

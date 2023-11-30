@@ -1,0 +1,10 @@
+name: data_processing
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - samtools>=1.18
+  - python>=3.8
+  - pip:
+    - "--editable=git+https://github.com/tomarovsky/Biocrutch.git#egg=Biocrutch"
+    - "--editable=git+https://github.com/atotickov/BerryTart.git#egg=BerryTart"
