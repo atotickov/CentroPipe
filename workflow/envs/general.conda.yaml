@@ -1,15 +1,12 @@
-name: quarTeT
+name: general
 channels:
   - conda-forge
   - bioconda
 dependencies:
   - python>=3.8
-  - pip>=23.3.1
-  - trf>=4.09
-  - cd-hit>=4.8.1
-  - blast>=2.11.0
+  - blast
+  - mafft
   - pip:
-    - "--editable=git+https://github.com/atotickov/quarTeT.git#egg=quarTeT"
     - "--editable=git+https://github.com/mahajrod/MACE.git#egg=MACE"
     - "--editable=git+https://github.com/mahajrod/MAVR.git#egg=MAVR"
     - "--editable=git+https://github.com/mahajrod/RouToolPa.git#egg=RouToolPa"

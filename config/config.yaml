@@ -5,29 +5,65 @@ genomes_dir: "genomes"
 log_dir: "logs"
 results_dir: "results"
 quartet_dir: "quartet_results"
-chromosomes_dir: "chromosomes"
+gff_tab_dir: "gff_tab"
+fasta_dir: "fastas"
 
 # Conda config
 data_processing_conda_config: "workflow/envs/data_processing.conda.yaml"
 quartet_conda_config: "workflow/envs/quartet.conda.yaml"
+general_conda_config: "workflow/envs/general.conda.yaml"
 
 # Tools setting:
 # 1 - Threads
-scaffold_filtering_by_length.threads: 2
-quartet.threads: 2
-chromosomes.threads: 2
+scaffold_filtering_by_length_threads: 2
+quartet_threads: 2
+dat_files_conversion_threads: 2
+tab_files_filtration_threads: 2
+get_stats_threads: 2
+get_fasta_threads: 2
+rotation_threads: 2
+bed_file_visual_threads: 2
 
 # 2 - Memory
-scaffold_filtering_by_length.mem_mb: 40000
-quartet.mem_mb: 40000
-chromosomes.mem_mb: 40000
+scaffold_filtering_by_length_mem_mb: 40000
+quartet_mem_mb: 40000
+dat_files_conversion_mem_mb: 40000
+tab_files_filtration_mem_mb: 40000
+get_stats_mem_mb: 40000
+get_fasta_mem_mb: 40000
+rotation_mem_mb: 40000
+bed_file_visual_mem_mb: 40000
 
 # 3 - Time
-scaffold_filtering_by_length.time: "150:00:00"
-quartet.time: "150:00:00"
-chromosomes.time: "150:00:00"
+scaffold_filtering_by_length_time: "150:00:00"
+quartet_time: "150:00:00"
+bed_file_visual_time: "150:00:00"
+dat_files_conversion_time: "150:00:00"
+tab_files_filtration_time: "150:00:00"
+get_stats_time: "150:00:00"
+get_fasta_time: "150:00:00"
+rotation_time: "150:00:00"
 
 # 4 - Parameters
-scaffold_filtering_by_length.params: "10000"  # фильтрация скаффолдов по минимальной длине
-quartet.params: "--trf 2 7 7 80 10 500 -r 10 -n 650 -m 750"
-chromosomes.params: ""
+scaffold_filtering_by_length_params: "10000"  # фильтрация скаффолдов по минимальной длине
+quartet_params:
+- Match: 2        # Matching weight (default value: 2) | TRF
+- Mismatch: 7     # Mismatching penalty (default value: 7) | TRF
+- Delta: 7        # Indel penalty (default value: 7) | TRF
+- PM: 80          # Match probability (default value: 80) | TRF
+- PI: 10          # Indel probability (default value: 10) | TRF
+- Minscore: 500   # Minimum alignment score (default value: 50) | TRF
+- MaxPeriod: 750  # Maximum period size (default value: 200) | TRF
+- MinPeriod: 650  # Minimum period size (default value: 100) | quarTeT
+- l: 10           # Maximum TR length expected, in millions (default value: 3 (=3000000)) | TRF
+dat_files_conversion_params: ""
+tab_files_filtration_params:
+- MinMonomerCopies: 100   #
+- MaxMonomerSize: 800     #
+- MinMonomerSize: 500     #
+get_stats_params: ""
+get_fasta_params: ""
+rotation_params:
+- MaxDifference: 0.1  # -m --max_difference Maximal threshold for difference between sequences (fraction of sequence uncovered by blast hits). Default value: 0.1
+- EValue: 0.001       # -e --evalue         Maximal threshold for e-value (blast). Default value: 0.001
+bed_file_visual_params: ""

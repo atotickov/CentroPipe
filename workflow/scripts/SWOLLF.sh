@@ -43,32 +43,3 @@ for ((i=0; i<${#assemblies[@]}; i++)); do
         
         cd ${workflow_path}/
 done
-
-
-
-
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------
-#sbatch -w orthrus-1 SRA_slurm.sh
-
-# Содержимое SRA_slurm.sh:
-
-##!/bin/bash -i
-##SBATCH --job-name=srrs                                                 # Job name
-##SBATCH --mail-type=END                                                 # Mail events
-##SBATCH --mail-user=a.totickov1@gmail.com                               # Where to send mail
-##SBATCH --cpus-per-task=32                                              # Number of CPU cores per task (max 32)
-##SBATCH --mem=256gb                                                     # Job memory request (max 256gb)
-##SBATCH --time=150:00:00                                                # Time limit hrs:min:sec
-##SBATCH --output=/logs/SRA_slurm.log
-##SBATCH --error=/logs/SRA_slurm.err
-#squeue; hostname; date;
-
-#conda activate SRAtoolkit; # mamba create -n SRAtoolkit -c bioconda sra-tools; conda install -c conda-forge axel; conda install -c conda-forge pigz
-
-#cd /path/; pwd;
-
-#bash SRA.sh -l "https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR17072712/SRR17072712 https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR17072713/SRR17072713 https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR17072714/SRR17072714 https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR17072715/SRR17072715" 2>&1 | tee logs/SRA.info
-
-#date;
-
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------
